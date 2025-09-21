@@ -1,7 +1,7 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import bodyParser from 'body-parser';
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import bodyParser from "body-parser";
 // import connectDB from './config/db.js';
 // import userRoutes from './routes/userRoutes.js';
 // import productRoutes from './routes/productRoutes.js';
@@ -24,8 +24,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use('/api/products', productRoutes);
 // app.use('/api/orders', orderRoutes);
 
-app.get('/', (req, res) => {
-  res.send('API is running...');
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
+app.get("*", (req, res) => {
+  res.status(200).json({ message: "Hello from Vercel!" });
 });
 
 app.listen(PORT, () => {
